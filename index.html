@@ -1,170 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOTES</title>
-  <style>
-    body {
-      font-family: "Indie Flower", cursive;
-      background-color: #ffd6e8;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    .calendar-container {
-      background: white;
-      border-radius: 25px;
-      padding: 25px;
-      width: 100%;
-      max-width: 520px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    }
+<title>September Notes 2025</title>
 
-    h1 {
-      text-align: center;
-      color: black;
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
+<style>
 
-    .weekdays {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-      font-size: 14px;
-      margin-bottom: 10px;
-      color: #555;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 8px;
-    }
+body{
+  font-family:'Segoe Script','Brush Script MT',cursive;
 
-    .day {
-      background: #ffe3f1;
-      padding: 15px 0;
-      border-radius: 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 18px;
-      border: 2px solid transparent;
-      word-break: break-word;
-    }
+  background:#ffd6e8;
 
-    .day:hover {
-      background: #ffbcd6;
-      border-color: #ff98c2;
-    }
+  min-height:100vh;
 
-    /* Modal */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      z-index: 999;
-    }
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
 
-    .modal-content {
-      background: white;
-      padding: 20px;
-      width: 90%;
-      max-width: 420px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      animation: pop 0.25s ease;
-    }
+  padding:20px;
+}
 
-    @keyframes pop {
-      0% { transform: scale(0.85); }
-      100% { transform: scale(1); }
-    }
+/* Main Container */
 
-    #modalTitle {
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 10px;
-    }
+.calendar-container{
 
-    #noteText {
-      font-size: 18px;
-      white-space: pre-line;
-      line-height: 1.35;
-      margin: 10px 0;
-      word-break: break-word;
-    }
+  background:white;
 
-    .btn-row {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-    }
+  width:100%;
+  max-width:520px;
 
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background: pink;
-      font-size: 18px;
-      transition: 0.2s;
-    }
+  border-radius:25px;
 
-    button:hover {
-      background: #ff9ec5;
-    }
+  padding:25px;
 
-    /* 📱 Mobile Responsive Adjustments */
-    @media (max-width: 500px) {
-      h1 { font-size: 24px; }
-      .day { font-size: 16px; padding: 12px 0; }
-      #noteText { font-size: 16px; }
-    }
-  </style>
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Title */
+
+h1{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+/* Weekdays */
+
+.weekdays{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+
+  text-align:center;
+
+  margin-bottom:10px;
+
+  color:#555;
+
+  font-size:15px;
+}
+
+/* Calendar Grid */
+
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+
+  gap:8px;
+}
+
+/* Day Box */
+
+.day{
+  background:#ffe3f1;
+
+  border-radius:12px;
+
+  padding:15px 0;
+
+  text-align:center;
+
+  cursor:pointer;
+
+  transition:0.2s;
+
+  font-size:20px;
+
+  border:2px solid transparent;
+}
+
+.day:hover{
+  background:#ffbcd6;
+  border-color:#ff98c2;
+}
+
+/* Modal Background */
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.55);
+
+  display:none;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+
+  z-index:999;
+}
+
+/* Modal Box */
+
+.modal-content{
+
+  background:white;
+
+  width:min(90%, 420px);
+
+  border-radius:24px;
+
+  padding:28px;
+
+  text-align:center;
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.25);
+
+  animation:pop .25s ease;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Popup Animation */
+
+@keyframes pop{
+
+  from{
+    transform:scale(.85);
+    opacity:0;
+  }
+
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+/* Modal Title */
+
+#modalTitle{
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+/* Note Text */
+
+#noteText{
+  font-size:22px;
+
+  line-height:1.5;
+
+  margin-bottom:22px;
+
+  text-align:center;
+
+  word-break:break-word;
+}
+
+/* Button */
+
+button{
+
+  border:none;
+
+  background:pink;
+
+  padding:12px 28px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  font-size:18px;
+
+  transition:.2s;
+}
+
+button:hover{
+  background:#ff9ec5;
+}
+
+/* 📱 Mobile Responsive */
+
+@media (max-width:500px){
+
+  body{
+    padding:12px;
+  }
+
+  .calendar-container{
+    padding:18px;
+    border-radius:20px;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+  .weekdays{
+    font-size:12px;
+  }
+
+  .day{
+    font-size:16px;
+    padding:12px 0;
+  }
+
+  .modal-content{
+    width:100%;
+    max-width:340px;
+
+    padding:22px 18px;
+
+    border-radius:20px;
+  }
+
+  #modalTitle{
+    font-size:26px;
+  }
+
+  #noteText{
+    font-size:18px;
+  }
+
+  button{
+    width:100%;
+    max-width:170px;
+  }
+}
+
+</style>
 </head>
 
 <body>
-  <div class="calendar-container">
-    <h1>September Notes 2025</h1>
 
-    <div class="weekdays">
-      <div>Sun</div><div>Mon</div><div>Tue</div>
-      <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-    </div>
+<div class="calendar-container">
 
-    <div class="calendar" id="calendar"></div>
+  <h1>September Notes 2025</h1>
+
+  <div class="weekdays">
+    <div>Sun</div>
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal" id="noteModal">
-    <div class="modal-content">
-      <h2 id="modalTitle"></h2>
-      <p id="noteText"></p>
+  <div class="calendar" id="calendar"></div>
 
-      <div class="btn-row">
-        <button onclick="closeModal()">Close</button>
-      </div>
-    </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal" id="noteModal">
+
+  <div class="modal-content">
+
+    <h2 id="modalTitle"></h2>
+
+    <p id="noteText"></p>
+
+    <button onclick="closeModal()">
+      Close
+    </button>
+
   </div>
 
-  <script>
-    const calendar = document.getElementById("calendar");
+</div>
+
+<script>
+
+const calendar = document.getElementById("calendar");
+
+/* Notes */
 
 const messages = {
+
   1: "Unang araw ng buwan ber months and unang araw na true silent words ko ulit sasabihin lahat kumusta kana and saying umulan here sa inyo ba? Malaks ulan here and always saying ka na kawawa naman yung mga tao walang bahay nasa labas lang nababasa i really love the way you care about theme na sobrang laki ng care mo para sa iba and what more pa when it comes to family, friends and also in relationships i really miss this person wala ako ibang magawa kundi i respect, intindihin lahat mga bagay na gusto nya sa ngayon ayaw ko na muna sya tanungin sa lahat willing ako hintayin lahat and if that right time comes sana isa sya big positive results na mag kakaron parin ng plot twist i really care about this girl i really lover not because she's pretty or what it because i find home na pag kasama ko sya ka usap ko sya ka video call ko sya sobrang gaan ng lahat pero nag kulang ako nag kulang ako sa pag tatanong kung ganon din ba sya ganon din ba na feel nya enough pa ba yung love na papakita ko enough pa ba yung time, bonding together. Lahat ng yan hindi ko na tanong na Masyado ako naka focus sa pagiging Masaya lang namin all should i say saya ko lang hindi ko na tanong lahat kasi takot ako nahihiya ako pero sana hindi pa huli ang lahat na kada araw yung lumilipas na hindi namin nakaka usap ng ma ayos ang isa't isa ayy tuluyan ng mawala yung pagiging interesado nya sakin ayun lang yung sure ako na possible na mawala pati na yung pake nya sakin kasi yung pag ka gusto at pag mamahal wala pa daw sya phase na yun i don't know if totoo yun wala naman ako magagawa kung ganon sya tao mahirap sya mapa mahal sa tao na sure nya muna lahat ng possibility. Ilang araw narin ako na ngungulit sakanya nag beg at kung ano ginagawa para maka usap at bigyan pansin at pilit na ipag pa tuloy yung mga bagay na sinimulan namin pero i realized na parang mas lumalayo sya sakin pag pa ulit ulit ko ipipilit lahat, pinag pray ko rin na sana lahat ng to may ka sagutan sa huli na isa lang to sa phase ng starting a relationship sinusubok nya lang ako, prank nya lang ako pero wala kahapon ko lahat na realize na dapat inintindi ko muna binibigyan ko muna time and boundaries or ni respect kung ano yung disisyon nya pero hindi ko alam kung hanggang saan ko kaya ganito kami pero titiisin ko nalang muna lahat i wait lahat if gods plan naman i will make a way to bring back everything na sana talaga ma balik yung dating saya bonding, and i sure na mas gagalingan at pag bubutihin lahat pupunan lahat ng pag kukulang, i really miss you Jane i know hindi enough yung totoo at genuine ka lang nagkulang ako sa madaming bagay. i really want to cry on you say everything gusto ko ma feel na nandyan kana for me. i promise to you na i will take care and hindi mawawala sa focus to kasi alam ko nan dyan ka parin for me na kahit sa kada araw  sobrang hirap i accept na wala na ako ma receive at hindi na muna ako puwede mag chat at mag sabi ng mga goodmorning goodnight at kung ano pa man yung mga nakasanayan natin gawin mag kasama mag call at mag ka chat sana ma balik lahat ng yun at pag na balik nayun sorry agad kasi madami nanaman ako letter na ginagawa to say everything eto yung way ko para ma labas lahat and ma update ka sa ka da araw na hindi tayo nag usap and it's already 8:09 am  na goodmorning na po pero wala I can't say it na e sa ngayon kasi isa ako malaki istorbo sayo sa pag iisip mo at pag iisa mo pero always remember na i will never give up on you waiting ako in a silent way and praying everyday para sa ikakabuti ng lahat, mapa goal, family and satin you always in my prayers and i think this enough for day ayaw ko mag basa ka ng sobrang dami if mababasa mo to. I love chicken nuggets❤️",
   2: "Sobrang tagal na 1 week na yata nung  pina stop nya manligaw at hindi na maka pag usap at mag update sa isa't isa sobrang sakit na kada araw pag gising mo lagi mo parin na iisip  na mag good morning na kasanayan mo na hina hanap hanap Mona pero wala ako magawa kundi i respect yung boundaries nya yung gusto nya mapag isa na maka pag focus kami sa kanya kanya buhay hindi ko alam pero sobrang sakit na parang okay lang sa kanya lahat pero siguro ayun nakikita ko ayaw ko husgahan lang bigla pero yun nga sana ngayon 4 months and 123 days na kami nag liligawan kini kilala ang isa't isa pero wala na lahat ng yun Wala ng ka siguraduhan kung babalik pa ba ma aayos pa ba sobrang sakit na araw araw ako na luha at hindi okay, hindi ko alam pano parin magiging okay na kahit na nag sisinungaling nako sa ibang tao masabi ko lang okay ako wala naman ako problem okay kami ni jane ayaw ko pa alam lahat dahil alam ko at umaasa parin ako na ma aayos pa lahat ng to, gabi gabi ako nag pray na sana ma ayos na sana pag gising okay na at sana pag tagpuin at maka pag usap kami sa dreams and ngayon nga araw napanaginipan ko sya at kasama sila tito and tita and naka sakay kami sa pick up and napansin nila na hindi kami okay at sa isang table pina upo kami Dalawa at kina usap hindi ko alam at tanda ano pinag usapan pero ayun pinaka na remember ko pero sana Talaga maka usap ko na sya personally at ma ayos din namin personally sana gabayan parin ni god lahat maka gawa parin ng paraan para samin ma fix to i know na hindi pa naman huli lahat pero sa kada araw na lumilipas madami possiblity na mangyari na hindi na nya Talaga ako gusto pa makilala at maka usap gaya ng dati na mawawalan na  sya ng pake sakin, napaka saya na sobrang gusto ako ng family nya ng mama nya papa nya at ng mga ate nya na tipong myday pa ako kahapon ni tita hindi ko alam bakit and si ate Mhean naman hinanap sya sakin dahil alam na ako lang possible na kasama nya pag lalabas pero yun nga hindi ko rin alam bat sya lumabas ng Wala yata pa alam pero baka nag take a break lang and nag worried lang din na baka sya lang din mag isa Buti nalang sinabi nya kasama nya si lyka and lastly papa nya nag react pa talaga dun sa music notes ko napansin parin nila and i think sobra sila nag expect about us pero wala hindi naman totally makaka help yun dahil ikaw parin lahat makaka pag disisyon non sabi mo nga hindi naman sila yung jojowain ko ikaw pero sana Talaga mag karon parin ng unexpected at plot twist na positive galing sayo hoping ako sa lahat, sorry hindi ko na care at nakaka pag focus sa sarili ko until now din kasi I don't know ano ngyayari sakin I'm in pain hindi ko parin ma tanggap lahat gusto ko sundinn lahat ng sinabi mo sakin wag mawala sa focus at alagaan Sarili ko pero wala lahat ng yun hindi ko nagawa Masyado ko kinikimkim lahat ng sakit na mismong mga tao na sa Bahay hindi na ramdam presensya ko i know na ayaw mo ko mag ka ganito pero hindi ko ginusto to and hindi kita sinisisi sa lahat ng to dahil ako ang nag kulang kaya ganito tayo sobrang sakit Talaga na mayat maya ko na iiyak sa sitwasyon natin at sa sitwasyon ko and also hindi ko ngarin sure kung may future ba ako e I don't feel na may work ako nag work ba ako sa BRB this week wala pa ako task wala pa sinasabi sakin regarding work part time ba full time or hindi ako tanggap pero yun nga baka talaga hindi para sakin to work na to sobra nako na pressure na sana nasasabi ko sayo to Lahat napapa gaan mo sana yung pakiramdam ko ngayon na sasabihin mo nalang sakin na 'kiss nalang kita' na lagi mo sabi kala mo makaka help pero sa totoo lang sobrang helpful nyan sobra ko appreciate yan napapa gaan nyan lahat nasira nga guitar ko baliwala lang e kasi you said that na sana palagi ko parin mababasa at receive yan message nayan lalo na yung mga sweet message mo at mga update mo hoping ako na sana magising nalang ako na update mo na ulit ako na ikaw narin mismo magyaya sakin mag simba at after Simba mag Jollibee or McDonald's tayo pero mas prefer natin McDonald's kasi andun yung favorite mo alaking, na remember ko pa yung ng double rice tayo nung nag alaking tayo sobrang dami nung rice mo na same order lang naman tayo pero yung servings sayo dami ang saya lang and ayun din una natin picture together after mass sobrang saya nung araw nayun hindi ma explain yung nararamdaman sana masundan pa yun ng mas marami pang memories together na  mabalik pa natin yung dating saya at kabaliwan natin yung tipong parang tropa lang tayo pero in special treatment or tropang premium sana sa susunod na pag type at pag gawa ko neto mga letter about sa kasiyahan na natin dalawa pero araw araw ako gagawa ng letter na to sa kada araw na hindi tayo nag uusap at nag kikita sana pag mag kasama na tayo tatawanan mo nalang to mga sinasabi ko dito magiging nonsense na to kasi we are together na pero if that's happen I'm gonna sure na gagawin ko na matibay yung pundasyon ng relationship natin na if we are not okay pipiliin parin natin isa't isa.",
   3: "Today nag breakdown ako gusto kita ka usapin pero isa nako istorbo sayo istorbo sa gusto mo katahimikan gusto ko sabihin sayo lahat umiiyak ako hindi ko alam may work ba ako kakayanin ko ba na miss kita jane sorry talaga ha isa na nga lang responsibility yung mapasaya kita at ma bigay yung best hindi ko pa nagawa nag kulang pa ako Masyado ako na kuntento okay lang tayo. try ko Lahat gawin kung magugustohan mo paging respectful ko pagiging patient ko pero hindi ko na tanong sa iba kung masaya ka pa ba okay lang ba ganito tayo sapat pa ba yung effort and bonding natin, sorry din hindi kita nayaya mag Date kasi mas prefer ko na kapag meron at sapat na budget meron ako kaya true Sunday or simba date nalang Talaga yung nabibigyan natin time and minsan hindi pa nag sakto na okay ka free ka free ako and minsan pag hindi kita na yaya hindi dahil nakakalimutan ko kundi wala ako lakas ng loob pumunta sa inyo pag wala ako pera ayaw ko pag nag Simba tayo you gonna pay for everything natatakot ako na ma disappoint ka sakin kasi nakilala moko na provider ako ng treat ako pero nung nanligaw na wala na takot ako sa disappointment na sayo mismo magagaling sorry hindi ako naging open for this edi sana okay parin tayo na sana ma gets mo yung side ko yung pag kukulang ko sana hindi nawala yung saya mo satin yung spark yung energy na gusto lagi mag ka usap even though hirap na schedule sa work pagod na sorry jane sana ma bigyan mo po ako second chance magiging honest nako sa lahat sayo hindi nako matatakot sabihin sayo lahat, gusto ko lang kasi ma impress ka sakin nag papa ka totoo naman ako pero ayun nga may mga bagay lang hindi sinasabi i remember nung niyaya moko maka sama sa family bonding nyo I don't have money Talaga that time kaya hiyang hiya ako sumama at nag ask pa ako kay ate for money pa punta sa inyo at pa uwi sobrang hiyang hiya ako sa sarili ko non, kaya sa tuwing mag ka usap tayo late night calls chat i really appreciate na lahat ng doubt about that nawawala and always ako nag try maka hanap ng work para hindi nako ganito tapos sobrang  saya nung nag ka work ka narin at the same time sobrang pressure din na ikaw meron na ako wala pa nahihiya ako sayo sobra parang every time na mag kakaron tayo quality time together sa labas iniisip ko na deserve  mo ba ako parang useless ako.  and now wala na no more Bonding quality time calls, chat sobrang sakit pero I know masakit din sayo kasi hindi biro pinag daanan natin together, pero ayun nga sana pag nabasa mo to give me some tight hug and i want to cry on you say everything and give some chance hindi sa pag makaka awa at beg sayo pero i really do love you I'm scared to loose you hindi ko kaya pag wala ka nasanay na tayo nan dyan tayo sa isa't isa sana ma intindihan mo rin ako sana matutunan mo rin mahalin ako kahit anong paraan ng gusto mo sana accept mo kung sino ako sana hindi mo ako hayaan mo wala rin sa buhay mo sana i treasure mo rin ako gaya ng pag treasure ko sayo. I will do better this time jane to show everything even though not enough yung capability ko try ko parin lahat mag hihintay lang ako sayo mananatili ako sa nasimulan natin at nandun lang ako nag hihintay sa pag balik mo at muli mo pag tanggap sakin, I think Masyado na to mahaba pero madami pa ako gusto sabihin sayo enough na muna to sa ngayon mahal na mahal kita jane alam ni God lahat, i will do pray every day pa ulit ulit na sana bigyan way at pagalingin mga puso at isipan natin sa mga ngyari, I love you Jane, I love chicken nuggets🥺",
@@ -198,30 +334,67 @@ const messages = {
 
 };
 
+/* September 2025 starts Monday */
 
+const emptyStartCells = 1;
 
-    const emptyStartCells = 1;
-    for (let i = 0; i < emptyStartCells; i++) {
-      calendar.appendChild(document.createElement("div"));
-    }
+/* Empty Spaces */
 
-    for (let i = 1; i <= 30; i++) {
-      const day = document.createElement("div");
-      day.classList.add("day");
-      day.textContent = i;
-      day.onclick = () => openNote(i);
-      calendar.appendChild(day);
-    }
+for(let i=0; i<emptyStartCells; i++){
 
-    function openNote(day){
-      document.getElementById("modalTitle").textContent = `September ${day}`;
-      document.getElementById("noteText").textContent = messages[day] || "(No message)";
-      document.getElementById("noteModal").style.display = "flex";
-    }
+  const empty = document.createElement("div");
 
-    function closeModal(){
-      document.getElementById("noteModal").style.display = "none";
-    }
-  </script>
+  calendar.appendChild(empty);
+}
+
+/* Create Days */
+
+for(let i=1; i<=30; i++){
+
+  const day = document.createElement("div");
+
+  day.classList.add("day");
+
+  day.textContent = i;
+
+  day.onclick = () => openNote(i);
+
+  calendar.appendChild(day);
+}
+
+/* Open Modal */
+
+function openNote(day){
+
+  document.getElementById("modalTitle").textContent =
+    `September ${day}`;
+
+  document.getElementById("noteText").textContent =
+    messages[day] || "(No message)";
+
+  document.getElementById("noteModal").style.display = "flex";
+}
+
+/* Close Modal */
+
+function closeModal(){
+
+  document.getElementById("noteModal").style.display = "none";
+}
+
+/* Close when clicking outside */
+
+window.onclick = function(event){
+
+  const modal = document.getElementById("noteModal");
+
+  if(event.target === modal){
+
+    closeModal();
+  }
+}
+
+</script>
+
 </body>
 </html>
